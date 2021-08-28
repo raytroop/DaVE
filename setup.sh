@@ -3,21 +3,21 @@
 # A sample setup file for DaVE
 # Copyright (c) 2014-2016 by Byong Chan Lim. All rights reserved.
 
-export DAVE_INST_DIR="/home/zamyers/DaVE/DaVE" # change this variable properly 
+export DAVE_INST_DIR="/home/EDA/software/DaVE" # change this variable properly 
 export DAVE_SAMPLES="${DAVE_INST_DIR}/samples"
 
 export mLINGUA_DIR="${DAVE_INST_DIR}/mLingua"
 export mLINGUA_DEMO_DIR="${mLINGUA_DIR}/examples"
-export mLINGUA_SIMULATOR="ncsim"  # vcs or ncsim
+export mLINGUA_SIMULATOR="vcs"  # vcs or ncsim
 export mPROBO_DIR="${DAVE_INST_DIR}/mProbo"
 export mPROBO_DEMO_DIR="${mPROBO_DIR}/examples"
 export mGENERO_DIR="${DAVE_INST_DIR}/mGenero"
 export mGENERO_DEMO_DIR="${mGENERO_DIR}/examples"
 
 if [ -z $PYTHONPATH ]; then
-  export PYTHONPATH="${DAVE_INST_DIR}:$PYTHONPATH"
-else
   export PYTHONPATH="${DAVE_INST_DIR}"
+else
+  export PYTHONPATH="${DAVE_INST_DIR}:$PYTHONPATH"
 fi
 
 export PATH="${DAVE_INST_DIR}/bin:${mPROBO_DIR}/bin:${mGENERO_DIR}/bin:${mLINGUA_DIR}/bin:$PATH"
@@ -32,7 +32,7 @@ export PATH="${DAVE_INST_DIR}/bin:${mPROBO_DIR}/bin:${mGENERO_DIR}/bin:${mLINGUA
 
 #export PATH="${PYTHONHOME}/bin:$PATH"
 
-export PATH=/usr/local/miniconda/bin:$PATH
-module load base
-module load incisive vcs
-source activate dave
+#export PATH=/usr/local/miniconda/bin:$PATH
+#module load base
+#module load incisive vcs
+#source activate dave
