@@ -3,6 +3,11 @@
 
 LUT1DPaired #(.Nsize(24)) lut_exp=new;
 
+// exp(-0.0) = 1.0
+// exp(-0.09) = 0.913931185271
+// ...
+// exp(-10) = 4.53999297625e-05
+
 initial begin
   lut_exp.data[0] = '{0.0, 1.0};
   lut_exp.data[1] = '{0.09, 0.913931185271};
