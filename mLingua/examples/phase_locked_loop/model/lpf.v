@@ -2,9 +2,9 @@
 
 Copyright (c) 2018- Stanford University. All rights reserved.
 
-The information and source code contained herein is the 
+The information and source code contained herein is the
 property of Stanford University, and may not be disclosed or
-reproduced in whole or in part without explicit written 
+reproduced in whole or in part without explicit written
 authorization from Stanford University. Contact bclim@stanford.edu for details.
 
 * Filename   : lpf.v
@@ -15,6 +15,34 @@ authorization from Stanford University. Contact bclim@stanford.edu for details.
 
 * Revision   :
   - 7/26/2016: First release
+
+****************************************************************/
+
+/****************************************************************
+si -> ------------------- vc
+        |             |
+        R             |
+        |             |
+        |             |
+        C1            C2
+        |             |
+        ---------------
+              \/
+si: input current
+so: current that flows through resistor R and capacitor C1
+vc: output node voltage
+vc1: node voltage btw R and C1
+
+Transfer function
+  so/si = 1/(R*C2)/(s+(C1+C2)/R/C1/C2)
+Then, zero state response with step input i.e. si0*u(t)
+  so_zs(t) = si0*C1/(C1+C2) - si0*C1*exp(-p1*t)/(C1+C2)
+and zero input response is
+  so_zi(t) = so0*exp(-p1*t)
+This way, the complete response is
+  so(t) = so_zs(t) + so_zi(t)
+        = si0*C1/(C1+C2) + (so0 -  si0*C1/(C1+C2))*exp(-p1*t)
+  Given, so0 = (vc0 - vc10)/R
 
 ****************************************************************/
 
@@ -43,7 +71,7 @@ time dTm;  // time interval of PWL waveform
 real dTr;
 reg event_in=1'b0;
 
-real si_at_t0;  // 
+real si_at_t0;  //
 real so_cur; // current output signal value
 real yo0;  // output signal value offset (so_cur at t0)
 
@@ -85,7 +113,7 @@ always @(si or wakeup) begin
     t_cur = `get_time;
     so_cur = pm.eval(so, t_cur);
     vc1 = vc1 + (so.a+so_cur)/2.0*(t_cur-so.t0)/C1;
-    if (event_in) begin 
+    if (event_in) begin
       t0 = t_cur;
       yo0 = so_cur;
       si_at_t0 = si;
@@ -120,8 +148,8 @@ end
 *******************************************/
 
 function real fn_lpf_pwl;
-input real t; 
-input real si; 
+input real t;
+input real si;
 input real yo0  , vc1, vc;
 begin
   //return A+(-A+B)*exp(-p1*t);
@@ -130,8 +158,8 @@ end
 endfunction
 
 function real f2max_lpf_pwl;
-input real t; 
-input real si; 
+input real t;
+input real si;
 input real yo0  , vc1, vc;
 begin
   //return abs(-A+B)*(p1)**2*exp(-p1*t);
@@ -144,8 +172,8 @@ endfunction
 *************************************/
 
 function real calculate_Tintv_lpf_pwl;
-input real etol, t; 
-input real si; 
+input real etol, t;
+input real si;
 input real yo0  , vc1, vc;
 real abs_f2max;
 real calcT;
@@ -153,7 +181,7 @@ begin
   abs_f2max = f2max_lpf_pwl(t, si, yo0  , vc1, vc);
   calcT = sqrt(8.0*etol/abs_f2max);
   return max(TU,min(1.0,calcT));
-  //return sqrt(8.0*etol/abs_f2max); 
+  //return sqrt(8.0*etol/abs_f2max);
 end
 endfunction
 
