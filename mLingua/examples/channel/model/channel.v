@@ -2,9 +2,9 @@
 
 Copyright (c) 2018- Stanford University. All rights reserved.
 
-The information and source code contained herein is the 
+The information and source code contained herein is the
 property of Stanford University, and may not be disclosed or
-reproduced in whole or in part without explicit written 
+reproduced in whole or in part without explicit written
 authorization from Stanford University. Contact bclim@stanford.edu for details.
 
 * Filename   : channel.v
@@ -27,7 +27,6 @@ module channel #(
 );
 
 `get_timeunit
-PWLMethod pm=new;
 
 
 channel_aug #(.etol(etol)) ch (.si(in), .so(out));
