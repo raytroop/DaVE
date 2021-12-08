@@ -98,7 +98,7 @@ end
 
 `include "lut_exp_pll.v"
 
-`protect
+//`protect
 //pragma protect
 //pragma protect begin
 pwl_add2 lpwladd( .in1(vc1_pwl), .in2(so), .scale1(1.0), .scale2(R), .out(vc) );
