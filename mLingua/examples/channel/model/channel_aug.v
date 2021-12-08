@@ -67,7 +67,7 @@ real so_cur0, so_cur1, so_cur2, so_cur3; // current output signal value
 real so_cur;
 real so_nxt0, so_nxt1, so_nxt2, so_nxt3;  // so at (t_cur+dT) for pwl output data
 real yo00, yo01, yo02, yo03;  // output signal value offset (so_cur at t0)
-real yo10, yo11, yo12, yo13;
+real yo10, yo11, yo12, yo13;  // first derivative
 real xi0;
 real so_slope0, so_slope1, so_slope2, so_slope3; // so slope
 real so_slope;
