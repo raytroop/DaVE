@@ -94,7 +94,7 @@ initial begin
   vc1_pwl = pm.write(vinit,0,0);
 end
 //pragma protect end
-`endprotect
+//`endprotect
 
 `include "lut_exp_pll.v"
 
