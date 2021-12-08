@@ -2,14 +2,14 @@
 
 Copyright (c) 2018- Stanford University. All rights reserved.
 
-The information and source code contained herein is the 
+The information and source code contained herein is the
 property of Stanford University, and may not be disclosed or
-reproduced in whole or in part without explicit written 
+reproduced in whole or in part without explicit written
 authorization from Stanford University. Contact bclim@stanford.edu for details.
 
 * Filename   : real2pwl.v
 * Author     : Byongchan Lim (bclim@stanford.edu)
-* Description: 
+* Description:
   It converts a real (pwc) signal to a pwl signal.
 
 * Note       :
@@ -38,8 +38,8 @@ timeprecision `DAVE_TIMEUNIT ;
 
 pullup(en);
 
-`protect
-//pragma protect 
+//`protect
+//pragma protect
 //pragma protect begin
 
 `get_timeunit
@@ -68,7 +68,6 @@ always @(in or wakeup or en) begin
       if (in_prev != in) begin
         v0 = pm.eval(out,t0);
         v1 = in;
-        if (tr_val < TU) tr_val = TU;
         out = pm.write(v0, (v1-v0)/tr_val, t0);
         in_prev = in;
         ->> `delay(tr_val) wakeup;
@@ -79,6 +78,6 @@ always @(in or wakeup or en) begin
 end
 
 //pragma protect end
-`endprotect
+//`endprotect
 
 endmodule
