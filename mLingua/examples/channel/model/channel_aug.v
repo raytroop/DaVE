@@ -19,15 +19,34 @@ authorization from Stanford University. Contact bclim@stanford.edu for details.
 ****************************************************************/
 
 /****************************************************************
-1 real pole:
+One real pole:
                       p00
-3 complex pole:
+wp0 = p00
+Three complex pole/zero:
         <imag>       <real>
           p10         p11
           p20         p21
           p30         p31
 
+wp1 = j * p10 + p11
+wp2 = j * p20 + p21
+wp3 = j * p30 + p31
+
+wp1*, wp2*, wp3* are the corresponding conjugate numbers
+r1*, r2*, r3* are the corresponding conjugate numbers
+r0 is real number
 ****************************************************************/
+// The total transfer function is
+// TF(s) = TF0 + TF1 + TF2 + TF3
+// Gvien:
+//     TF0 = r0/(s+wp0)
+//     TF1 = r1/(s+wp1) + r1*/(s+wp1*)
+//     TF2 = r2/(s+wp2) + r2*/(s+wp2*)
+//     TF3 = r3/(s+wp3) + r3*/(s+wp3*)
+// matlab `residue` function can be used for partial fraction decomposition
+
+
+
 
 module channel_aug #(
   parameter real etol = 0.005 // error tolerance of PWL approximation

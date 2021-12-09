@@ -2,16 +2,16 @@
 
 Copyright (c) 2018- Stanford University. All rights reserved.
 
-The information and source code contained herein is the 
+The information and source code contained herein is the
 property of Stanford University, and may not be disclosed or
-reproduced in whole or in part without explicit written 
+reproduced in whole or in part without explicit written
 authorization from Stanford University. Contact bclim@stanford.edu for details.
 
 * Filename   : pwl_filter_pfe.v
 * Author     : Byongchan Lim (bclim@stanford.edu)
-* Description: 
-  - A linear filter primitive cell. 
-    Wehn A and/or B are complex numbers, the transfer function is 
+* Description:
+  - A linear filter primitive cell.
+    Wehn A and/or B are complex numbers, the transfer function is
     TF(s) = A/(s+B) + (A*)/(s+B*) where  A* = conj(A), B* = conj(B)
   - When both A and B are real, the computed TF(s) = A/(s+B).
 
@@ -31,7 +31,7 @@ module pwl_filter_pfe #(
 ) (
   input complex A,  // coef A
   input complex B,  // coef B
-  `input_pwl in,    // filter signal input 
+  `input_pwl in,    // filter signal input
   `output_pwl out   // filter output
 );
 
@@ -39,8 +39,8 @@ timeunit `DAVE_TIMEUNIT ;
 timeprecision `DAVE_TIMEUNIT ;
 
 
-`protect
-//pragma protect 
+//`protect
+//pragma protect
 //pragma protect begin
 `get_timeunit // get timeunit in sec and assign it to the variable 'TU'
 PWLMethod pm=new; // Method for PWL signal processing
@@ -91,10 +91,10 @@ always @(`pwl_event(in)) begin
   if ($time == 0) begin
     _tmp1 = fn_compute_out0(A,B);
     _tmp2 = fn_compute_out0(Ac,Bc);
-    yo1_r = pm.write(_tmp1.r,0.0,t_cur); 
-    yo1_i = pm.write(_tmp1.i,0.0,t_cur); 
-    if (en_complex) yo2_r = pm.write(_tmp2.r,0.0,t_cur); 
-    if (en_complex) yo2_i = pm.write(_tmp2.i,0.0,t_cur); 
+    yo1_r = pm.write(_tmp1.r,0.0,t_cur);
+    yo1_i = pm.write(_tmp1.i,0.0,t_cur);
+    if (en_complex) yo2_r = pm.write(_tmp2.r,0.0,t_cur);
+    if (en_complex) yo2_i = pm.write(_tmp2.i,0.0,t_cur);
     out = pm.write(yo1_r.a+yo2_r.a,0.0,t_cur);
   end
   yo10 = '{pm.eval(yo1_r,t_cur), pm.eval(yo1_i, t_cur)};
@@ -127,7 +127,7 @@ always @(wakeup) begin
     if (en_complex) yo2_r = pm.write(out_cur2.r,out_slope2.r,t_cur);
     if (en_complex) yo2_i = pm.write(out_cur2.i,out_slope2.i,t_cur);
     err = abs(out.b*dTr - out_slope*dTr);
-    if (en_filter == 1'b1) 
+    if (en_filter == 1'b1)
       if (err >= etol) out = pm.write(out_cur, out_slope, t_cur);
       else out = out;
     else
@@ -148,7 +148,7 @@ end
 endfunction
 
 function complex compute_fn;
-input real t; 
+input real t;
 input complex C, D, yo0;
 complex te1, te2, te3;
 complex _e1, _e2;
@@ -167,7 +167,7 @@ end
 endfunction
 
 function real compute_f2max;
-input real t; 
+input real t;
 input complex y10, y20;
 complex term1, term2, term;
 real f21, f22;
@@ -198,7 +198,7 @@ endfunction
 *************************************/
 
 function real compute_dt;
-input real etol, t; 
+input real etol, t;
 input complex y10, y20;
 real abs_f2max;
 real calcT;
@@ -210,6 +210,6 @@ end
 endfunction
 
 //pragma protect end
-`endprotect
+//`endprotect
 
 endmodule
