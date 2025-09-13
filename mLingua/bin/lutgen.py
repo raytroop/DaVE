@@ -58,19 +58,19 @@ This version is only for evaluation purpose. Any redistribution,
 modification, or commercial use is prohibited without permission.
 For more information, contact bclim@stanford.edu
 '''
-  print logo
+  print(logo)
 
 def main():
   display_logo()
   args = pass_args('Generate a LUT Verilog model for piecewise linear modeling', 'cfg_lut.py')
 
   if args.ghktdjvn:
-    print ghktdjvn()
+    print(ghktdjvn())
 
   param = read_cfg(args.config)
   param.update({'ehdnsxmgorfkdlt': ehdnsxmgor()})
   LookUpTablemD(param)
-  print '=== Generating LUT module is completed ==='
+  print('=== Generating LUT module is completed ===')
 
 if __name__=="__main__":
   main()

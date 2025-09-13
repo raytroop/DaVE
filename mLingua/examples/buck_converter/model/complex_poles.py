@@ -23,8 +23,8 @@ y2r = diff(y, t, 2)
 
 #pprint(yr)
 #pprint(y2r)
-print '='*10, 'y(t)', '='*10
-print yr
-print ''
-print '='*10, 'y"(t)', '='*10
-print re(y2r)
+print('='*10, 'y(t)', '='*10)
+print(yr)
+print('')
+print('='*10, 'y"(t)', '='*10)
+print(re(y2r))

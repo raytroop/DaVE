@@ -19,7 +19,7 @@ This version is only for evaluation purpose. Any redistribution,
 modification, or commercial use is prohibited without permission.
 For more information, contact bclim@stanford.edu
 '''
-  print logo
+  print(logo)
 
 display_logo()
 #if ehdnsxmgor() != True:
@@ -28,9 +28,9 @@ display_logo()
 args = pass_args('Generate a SystemVerilog model of an analog filter in PWL waveform.', 'cfg_filter.py')
 
 if args.ghktdjvn:
-  print ghktdjvn()
+  print(ghktdjvn())
 
 VerilogPWLGenerator(args.config)
 
 # finish
-print '==Model Generation Complete=='
+print('==Model Generation Complete==')

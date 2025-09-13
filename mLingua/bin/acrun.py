@@ -46,7 +46,7 @@ def main():
   args = pass_args('Run AC simulation of a Verilog model.', 'cfg_ac.py' )
   run(args.config)
   os.remove('test.v')
-  print '=== AC simulation is completed ==='
+  print('=== AC simulation is completed ===')
 
 if __name__=="__main__":
   main()

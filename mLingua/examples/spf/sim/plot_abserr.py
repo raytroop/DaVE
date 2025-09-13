@@ -53,8 +53,8 @@ def main():
 
   err = y_vlog - y0
   #for i,v in enumerate(err[t0>tos]):
-  #  print (t0[t0>tos])[i]*1e15, ':', abs(v)*1000
-  print max(abs(err[t0>tos]))*1000
+  #  print((t0[t0>tos])[i]*1e15, ':', abs(v)*1000)
+  print(max(abs(err[t0>tos]))*1000)
  
   # plot time, value pairs at which events occur 
   plt.subplot(2,1,1)

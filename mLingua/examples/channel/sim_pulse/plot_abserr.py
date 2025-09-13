@@ -71,7 +71,7 @@ def main():
   else:
     y_vlog = y_vlog[:no_sample]
   err = y_vlog - y0
-  print max(abs(err[t0>tos]))*1000
+  print(max(abs(err[t0>tos]))*1000)
  
   # plot time, value pairs at which events occur 
   plt.subplot(2,1,1)
@@ -96,9 +96,9 @@ def main():
   y_max = max(y_vlog)
   y = list(y_vlog)
   idx_ref = list(y_vlog).index(y_max)
-  print 'main_cursor =', max(y_vlog)
-  print 'pre_cursor =', y[idx_ref - int(200e-12/ts)]
-  print 'post_cursor =', y[idx_ref + int(200e-12/ts)]
+  print('main_cursor =', max(y_vlog))
+  print('pre_cursor =', y[idx_ref - int(200e-12/ts)])
+  print('post_cursor =', y[idx_ref + int(200e-12/ts)])
   
 
 

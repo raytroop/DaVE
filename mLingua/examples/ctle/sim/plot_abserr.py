@@ -63,7 +63,7 @@ def plot(index):
     y_vlog = y_vlog[:no_sample]
 
   err = y_vlog - y0
-  print 'Max. residual error = %.1f [mV]' % (max(abs(err[t0>tos]))*1000)
+  print('Max. residual error = %.1f [mV]' % (max(abs(err[t0>tos]))*1000))
  
   # plot time, value pairs at which events occur 
   plt.subplot(2,1,1)

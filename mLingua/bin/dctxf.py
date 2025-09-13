@@ -47,7 +47,7 @@ This version is only for evaluation purpose. Any redistribution,
 modification, or commercial use is prohibited without permission.
 For more information, contact bclim@stanford.edu
 '''
-  print logo
+  print(logo)
 
 def run(cfg_file):
   param = read_cfg(cfg_file)
@@ -63,11 +63,11 @@ def main():
   args = pass_args('Generate a Verilog model representing a DC transfer curve in PWL waveform', 'cfg_txf.py')
 
   if args.ghktdjvn:
-    print ghktdjvn()
+    print(ghktdjvn())
 
   param = read_cfg(args.config)
   TxfCurveGenerator(param)
-  print '=== Generating transfer curve module is completed ==='
+  print('=== Generating transfer curve module is completed ===')
 
 if __name__=="__main__":
   main()
