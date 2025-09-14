@@ -36,3 +36,8 @@ mLingua/samples/connect/connect_lib/connectLib/.*
 dave.lic
 distribution/*
 .idea
+
+profileReport.html
+profileReport/
+simprofile_dir/
+xrun.history
