@@ -24,7 +24,7 @@
 		</g>
 		<marker id="mrkr13-23" class="st4" v:arrowType="13" v:arrowSize="2" v:setback="13.5" refX="-13.5" orient="auto"
 				markerUnits="strokeWidth">
-			<use xlink:href="#lend13" transform="scale(-4.5,-4.5) "/>
+			<use href="#lend13" transform="scale(-4.5,-4.5) "/>
 		</marker>
 	</defs>
 	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">

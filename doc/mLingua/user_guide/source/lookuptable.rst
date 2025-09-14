@@ -25,9 +25,9 @@ However, let's step back a little bit and for PWL approximation, use relative er
 Then, the relative of error of this approximation is as follows.
 
 .. math::
-  \mathrm{relative}\;\mathrm{error} & = \frac{|f(t)-\hat{f}(t)|}{f(t)}
-                          & = \frac{|e^{t/\beta_i}-(a\cdot t + b)|}{e^{t/\beta_i}}
-  :label: eq_relerr                       
+  \mathrm{relative}\;\mathrm{error}  = \frac{|f(t)-\hat{f}(t)|}{f(t)}
+                           = \frac{|e^{t/\beta_i}-(a\cdot t + b)|}{e^{t/\beta_i}}
+  :label: eq_relerr
 
 After changing the variable :math:`t` (i.e. normalize to :math:`\beta_i`) to :math:`x`, the relative error is given by
 

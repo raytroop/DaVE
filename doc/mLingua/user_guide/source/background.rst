@@ -16,7 +16,7 @@ As shown in Figure :ref:`analogmodel`, our analog model essentially consists of 
 
 .. _analogmodel:
 
-.. figure:: _static/analog_model.png
+.. figure:: _static/analog_model.svg
   :width: 400px
   :align: center
 
