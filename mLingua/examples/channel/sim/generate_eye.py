@@ -47,7 +47,7 @@ def run(filename, imgname, period, time_offset, nbin):
   #cax=plt.imshow(H/s,interpolation='gaussian',cmap=plt.cm.coolwarm, extent=extent, norm=Normalize(), aspect=aspect)
   plt.grid(color='w')
   fig.colorbar(cax)
-  ax.set_axis_bgcolor('k')
+  ax.set_facecolor('k')
 
   plt.savefig(imgname)
 
